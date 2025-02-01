@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Get the home directory from /etc/passwd using the current user's UID
+HOME_DIR=$(getent passwd "$(id -u)" | cut -d: -f6)
+
+# Change to the home directory
+cd "$HOME_DIR"
+
