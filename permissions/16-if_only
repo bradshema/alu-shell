@@ -1,0 +1,2 @@
+#!/bin/bash
+if [ "$(stat -c %U _hello)" = "guillaume" ]; then sudo chown vincent _hello; fi
