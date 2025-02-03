@@ -1,2 +1,2 @@
 #!/bin/bash
-[ "$(stat -c %U _hello)" = "brad" ] >> (sudo chown vincent _hello)
+[ "$(stat -c %U _hello)" = "vincent" ] >> (sudo chown guillaume _hello)
