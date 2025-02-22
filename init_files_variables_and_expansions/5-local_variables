@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(declare -p)$(env)"
+env | declare -p
