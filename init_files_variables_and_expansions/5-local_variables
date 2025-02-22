@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(declare -p | grep -oP '^\w+=.*')$(env)"
+declare -p | grep -oP '^\w+=.*' && env | tr '\n' ' '
