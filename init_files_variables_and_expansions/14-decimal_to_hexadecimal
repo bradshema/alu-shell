@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%X\n" $DECIMAL
+echo "your_text_here" | tr 'A-Za-z' 'N-ZA-Mn-za-m'   # For encoding/decoding
