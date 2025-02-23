@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Loop to print "Best School" 10 times
 
 i=1
