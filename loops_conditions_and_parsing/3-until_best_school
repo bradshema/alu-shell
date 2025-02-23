@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Loop to echo best school unil count == 10
 
 count=0
 
