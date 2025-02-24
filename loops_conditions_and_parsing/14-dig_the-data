@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#This is script
-# Assuming the log file is passed as the first argument
-log_file="$1"
 
-# Using awk to extract the necessary fields and then sort/count them
-awk '{print $1, $9}' "$log_file" | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
+#This is script
+
+# Assuming the log file is named 'access_log'
+# Adjust the file name to match your actual log file location
+
+awk '{print $1, $9}' access_log | sort | uniq -c | sort -nr | awk '{printf "%6d %s %s\n", $1, $2, $3}'
