@@ -7,6 +7,6 @@ for pid in /proc/[0-9]*; do
     # Get the process ID (PID) and the process name
     process_name=$(cat "$pid/comm")
     # Output the PID and process name
-    echo "$(basename $pid) $process_name"
+    echo "$(basename "$pid") $process_name"
   fi
 done
