@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #This is script
-# Display a list of all running processes in a user-oriented format, with process hierarchy
-ps -eaf --forest
+
+# Display a list of all running processes with full command and process hierarchy, showing UID
+ps -eo uid,command --forest --sort=uid
