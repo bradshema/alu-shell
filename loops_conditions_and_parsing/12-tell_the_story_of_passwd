@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #This is script
+
 # Setting the IFS (Internal Field Separator) to colon (:) for proper parsing
 IFS=':'
 
 # Reading the /etc/passwd file line by line
-while read -r USERNAME PASSWORD GROUP_ID USER_ID_INFO HOME_DIRECTORY COMMAND_SHELL
+while read -r USERNAME PASSWORD USER_ID GROUP_ID USER_ID_INFO HOME_DIRECTORY COMMAND_SHELL
 do
     # Display the output in the required format
-    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. User ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
+    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $USER_ID_INFO and rides $HOME_DIRECTORY:$COMMAND_SHELL. User ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID"
 done < /etc/passwd
