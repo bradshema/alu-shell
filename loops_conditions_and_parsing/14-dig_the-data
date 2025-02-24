@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#This is script
+# Assuming the log file is passed as the first argument
+log_file="$1"
+
+# Using awk to process the log file
+awk '{print $1, $9}' "$log_file" | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
