@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 #This is script
+
 for pid in /proc/[0-9]*; do
   # Check if the process name in /proc/[PID]/comm contains "bash"
   if grep -q "bash" "$pid/comm" 2>/dev/null; then
     # Get the process ID (PID) and the process name
     process_name=$(cat "$pid/comm")
+    # Output the PID and process name
     echo "$(basename $pid) $process_name"
   fi
 done
