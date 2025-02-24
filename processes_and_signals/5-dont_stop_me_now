@@ -7,7 +7,7 @@ PID=$(pgrep -f 4-to_infinity_and_beyond)
 if [ -z "$PID" ]; then
     echo "No running process found for 4-to_infinity_and_beyond."
 else
-    # Kill the process
-    kill "$PID"
-    echo "Process 4-to_infinity_and_beyond with PID $PID has been terminated."
+    # Kill the process forcefully with SIGKILL
+    kill -9 "$PID"
+    echo "Process 4-to_infinity_and_beyond with PID $PID has been forcefully terminated."
 fi
