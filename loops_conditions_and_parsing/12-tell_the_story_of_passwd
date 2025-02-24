@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #This is script
-
 # Setting the IFS (Internal Field Separator) to colon (:) for proper parsing
 IFS=':'
 
