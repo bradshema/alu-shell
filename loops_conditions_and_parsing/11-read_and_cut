@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #This is script
 # Open /etc/passwd and read it line by line
-while IFS=: read -r username password uid gid full_name home_directory shell; do
+while IFS=: read -r username _ uid _ _ home_directory _; do
     # Display username, UID, and home directory
     echo "Username: $username"
     echo "User ID: $uid"
