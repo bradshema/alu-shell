@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 #This is script
 
-# Setting the IFS (Internal Field Separator) to colon (:) for proper parsing
+# Set IFS to colon, which is the delimiter in /etc/passwd
 IFS=':'
 
-# Reading the /etc/passwd file line by line
-while read -r USERNAME PASSWORD USER_ID GROUP_ID USER_ID_INFO HOME_DIRECTORY COMMAND_SHELL
-do
-    # Extract just the name of the home directory (strip the leading '/')
-    HOME_DIR_NAME=$(basename "$HOME_DIRECTORY")
+# Read each line of /etc/passwd
+while read -r USERNAME PASSWORD USER_ID GROUP_ID COMMENT HOME_DIRECTORY COMMAND_SHELL; do
+    # Handle cases where COMMENT might be empty or contain commas
+    COMMENT=${COMMENT//,/\,}
 
-    # Display the output in the required format
-    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIR_NAME and rides $HOME_DIRECTORY:$COMMAND_SHELL. User ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
+    # Output the formatted information for each user
+    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $COMMENT"
 done < /etc/passwd
