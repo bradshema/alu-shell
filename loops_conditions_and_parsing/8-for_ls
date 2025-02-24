@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #This is script
+# Loop through all non-hidden files in the current directory
 for file in *; do
     # Check if it's a file or directory (not hidden)
     if [[ -f "$file" || -d "$file" ]]; then
-        # Extract part of the name after the first dash
-        new_name="${file#*-}"
-        
-        # Only print if a dash was found and there's content after it
-        if [[ "$new_name" != "$file" ]]; then
-            echo "$new_name"
+        # If the file contains a dash, extract the part after the first dash
+        if [[ "$file" == *"-"* ]]; then
+            echo "${file#*-}"
+        else
+            echo "$file"
         fi
     fi
 done
