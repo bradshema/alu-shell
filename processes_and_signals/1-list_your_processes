@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #This is script
 
-# Display a list of all running processes with full command and process hierarchy, showing UID
-ps -eo uid,command --forest --sort=uid
+# Display all running processes, user information, full command, and process hierarchy
+ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
