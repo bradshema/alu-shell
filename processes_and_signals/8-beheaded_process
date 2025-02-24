@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#This is script
+
+pkill 7-highlander
+
+# Optional: Verify if the process is still running
+if pgrep 7-highlander > /dev/null; then
+    echo "Process 7-highlander is still running."
+else
+    echo "Process 7-highlander has been killed."
+fi
