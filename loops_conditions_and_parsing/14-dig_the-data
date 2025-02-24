@@ -3,5 +3,5 @@
 # Assuming the log file is passed as the first argument
 log_file="$1"
 
-# Using awk to process the log file
+# Using awk to extract the necessary fields and then sort/count them
 awk '{print $1, $9}' "$log_file" | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
