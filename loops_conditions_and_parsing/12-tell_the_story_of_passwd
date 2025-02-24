@@ -11,5 +11,5 @@ do
     HOME_DIR_NAME=$(basename "$HOME_DIRECTORY")
 
     # Display the output in the required format
-    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIR_NAME and rides $HOME_DIRECTORY:$COMMAND_SHELL. User ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID"
+    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIR_NAME and rides $HOME_DIRECTORY:$COMMAND_SHELL. User ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
 done < /etc/passwd
