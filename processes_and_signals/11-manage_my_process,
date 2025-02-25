@@ -1,40 +1,30 @@
 #!/usr/bin/env bash
 #This is script
-PID_FILE="/var/run/my_process.pid"
 PROCESS_NAME="manage_my_process"
+PID_FILE="/var/run/my_process.pid"
 
 start() {
-    # Start the process
-    if [ -f $PID_FILE ]; then
-        echo "$PROCESS_NAME is already running!"
-    else
-        # Start the script in the background
-        ./manage_my_process &
-        # Get the PID of the process and save it to the PID file
-        echo $! > $PID_FILE
-        echo "$PROCESS_NAME started"
-    fi
+    nohup ./$PROCESS_NAME &> /dev/null &
+    echo $! > $PID_FILE
+    echo "$PROCESS_NAME started"
 }
 
 stop() {
-    # Stop the process
     if [ -f $PID_FILE ]; then
         kill $(cat $PID_FILE)
         rm -f $PID_FILE
         echo "$PROCESS_NAME stopped"
     else
-        echo "$PROCESS_NAME is not running!"
+        echo "$PROCESS_NAME is not running"
     fi
 }
 
 restart() {
-    # Restart the process
     stop
     start
     echo "$PROCESS_NAME restarted"
 }
 
-# Check for the argument and call the corresponding function
 case "$1" in
     start)
         start
@@ -46,6 +36,9 @@ case "$1" in
         restart
         ;;
     *)
-        echo "Usage: manage_my_process {start|stop|restart}"
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
         ;;
 esac
+
+exit 0
