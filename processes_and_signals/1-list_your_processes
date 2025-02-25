@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #This is script
+# Check if the script is run with superuser privileges
 if [[ $EUID -ne 0 ]]; then
     echo "It is recommended to run this script as root to see all processes."
 fi
@@ -8,8 +9,8 @@ fi
 echo "Listing all running processes with hierarchy:"
 echo "----------------------------------------------------"
 
-# Use ps and pstree to display processes
-ps -eo user,pid,ppid,stat,tty,time,cmd --sort=ppid | awk 'NR==1 || $2 != 1' | column -t
+# Use ps to display processes in the required format
+ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd --sort=pid | head -50
 
-echo "\nProcess hierarchy:"
-pstree -aup
+# Display process hierarchy
+printf "\nProcess hierarchy:\n"
